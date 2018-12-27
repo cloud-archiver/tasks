@@ -17,6 +17,7 @@ module.exports = class Tasks {
 
   run (name) {
     return this.config.tasks[name].map(task => {
+      this.logger.log('Executing', task)
       return this.program.parse(['', '', ...task.split(' ')])
     })
   }
